@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- BOOTSTRAP HREF FOR STYLING -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>ToDoList - FUNCTION-UP</title>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-light bg-light">
+
+    <!-- YOU CAN ADD YOUR NAV HEADING FROM HERE -->   
+    <a class="navbar-brand">TO DO LIST</a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </nav><br><br>
+
+
+    <!-- INPUT FORM -->
+    <div class="container">
+        <h1>TO DO LIST : 2022</h1>
+
+        <form id="form">
+            <!-- HERE USER WILL GIVE INPUT -->
+            <input type="text" class="form-control" id="inputText" placeholder="You can add task from here ...."/>
+        </form><br>   
+
+        <!-- ADD TASK BUTTON -->     
+        <button class="btn btn-primary btn-lg" onclick="myFunction()">Add</button><br><br>
+
+
+        <!-- TASK LIST --> 
+        <center><h2>Task List</h2></center>
+        
+        <ol id="myList" class="list-group">
+        <!-- <li class="list-group-item"> TASK 1 </li>  -->
+        </ol>
+        <br><br>
+
+        <!-- DELETE TASK BUTTON -->  
+        <center><button type="button" class="btn btn-danger" onclick="deleteBtn()">DELETE</button></center>
+        
+    </div>
+
+<script>
+    function myFunction() {
+        const input=document.querySelector("#inputText");
+        const task=input.value
+        if(!task){
+            alert("Please Add Task")
+            return;
+        }
+            const node = document.createElement("li");
+            node.classList.add("list-group-item")
+            const textnode = document.createTextNode(task);
+            node.appendChild(textnode);
+            document.getElementById("myList").appendChild(node);
+    }
+
+    function deleteBtn() {
+        const list = document.getElementById("myList");
+        if (list.hasChildNodes()) {
+            list.removeChild(list.children[0]);
+        }
+    }
+
+
+</script>
+</body>
+</html>
